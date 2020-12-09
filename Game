@@ -1,0 +1,233 @@
+var ballX = mouseX;
+var ballY = mouseY;
+var ballsize = 20;
+var ballmove = 7;
+var ballmoving =375;
+var speed = 3;
+var y = 350;
+var hola = 0;
+var ballsize = 20;
+var ballmove = -100;
+var ballmoving =375;
+var speed = 3;
+var cloud1x = 100;
+var cloud2x = 316;
+var title = function() {
+draw = function() {
+     background(173, 223, 250);
+     //clouds
+     noStroke();
+       fill(235, 224, 14);
+       ellipse(300, 100, 100, 100);
+       fill(255, 250, 250);
+       //first cloud
+       ellipse(cloud1x -47, 106, 65, 65);
+       ellipse( cloud1x +47, 106, 65, 65);
+    ellipse(cloud1x, 106, 99, 85);
+    cloud1x +=1;
+    if(cloud1x > 600) {
+     cloud1x = 50;   
+    }
+           //second cloud
+    ellipse(cloud2x +55, 70, 65, 65);
+       ellipse(cloud2x -57, 70, 65, 65);
+    ellipse(cloud2x, 70, 106, 85);
+    cloud1x +=1;
+    cloud2x -=1;
+    
+    if(cloud2x < -30) {
+     cloud2x = 400;   
+    }
+    strokeWeight(10);
+     textFont(-17, 124);
+    fill(0, 0, 0);
+    pushMatrix();
+    translate(165, 255);
+    rotate(37);
+     fill(58, 184, 30);
+    text("Dodge", -246, -16);
+    fill(227, 209, 209);
+    line(-299, -16, 105, -10);
+    text("Debris", -179, -125);
+     line(-179, -125, 140, -125);
+    textSize(10);
+       fill(0, 26, 153);
+       textSize(10);
+       text("Created By Liam O'Malley + Keaton Heisterman", -101, 70);
+       textSize(15);
+       for (var xtext = -143; xtext < 300; xtext += 95) {
+          fill(0, 43, 163);
+    text("Click to Start", xtext, 116);
+}
+xtext++;
+       textFont(-17, 124);
+       text("Debris", -169, -125);
+       text("Dodge", -239, -16);
+    
+};
+    
+    
+};
+        
+draw = function() {
+title();
+};
+    var rectX = random(0, 75);
+    var rectX1 = random(100, 175);
+    var rectX2 = random(200, 275);
+    var rectX3 = random(300, 345);
+    var rectY = 0;
+   
+    ////////////////////////
+    //draw program is mouse is pressed
+    ////////////////////////
+    
+    mouseClicked = function() {
+       
+    
+    draw = function() {
+     background(173, 223, 250);
+     
+     //clouds
+     noStroke();
+     fill(300, 300, 0);
+    ellipse(300, 100, 100, 100);
+       fill(255, 250, 250);
+       //first cloud
+       ellipse(cloud1x -47, 106, 65, 65);
+       ellipse( cloud1x +47, 106, 65, 65);
+    ellipse(cloud1x, 106, 99, 85);
+    cloud1x +=1;
+    if(cloud1x > 500) {
+     cloud1x = -30;   
+    }
+           //second cloud
+    ellipse(cloud2x +55, 70, 65, 65);
+       ellipse(cloud2x -57, 70, 65, 65);
+    ellipse(cloud2x, 70, 106, 85);
+    cloud1x +=1;
+    cloud2x -=1;
+        fill(0, 0, 0);
+        rect(3, 0, 5, 400);
+        rect(392, 0, 5, 400);
+            
+            rectY += 5;
+            fill(255, 0, 0);
+            strokeWeight(50);
+            rect(rectX + 10 , rectY, 30, 50);
+            fill(255, 140, 0);
+            strokeWeight(50);
+            rect(rectX1 + 10, rectY, 30, 50);
+            fill(166, 153, 36);
+            strokeWeight(50);
+            rect(rectX2 + 10, rectY, 30, 50);
+            fill(21, 255, 0);
+            strokeWeight(50);
+            rect(rectX3 + 10, rectY, 30, 50);
+         
+        
+        if (rectY === 400) {
+            rectY = 0;
+            rectX = random(0, 80);
+            rectX1 = random(100, 180);
+            rectX2 = random(200, 290);
+            rectX3 = random(300, 345);
+            
+        }
+        
+        
+        
+        strokeWeight(10);
+        fill(0, 26, 153);
+        ellipse(mouseX, y, ballsize /0.85, ballsize /0.85); 
+        
+        
+       /*
+        if(hola > 2) {
+            
+            rectX = random(0, 60);
+            rectX1 = random(110, 150);
+            rectX2 = random(195, 235);
+            rectX3 = random(280, 320);
+            rectX4 = random(365, 400);
+            
+        }
+        */
+         
+        while(mouseX  < rectX + 50 && mouseX > rectX && rectY > 285 && rectY < 350 || mouseX < rectX1 + 50 && mouseX > rectX1 && rectY > 285 && rectY < 350 || mouseX  < rectX2 + 50 && mouseX > rectX2  && rectY > 285 && rectY < 350 || mouseX  < rectX3 + 50 && mouseX > rectX3 && rectY > 285 && rectY < 350 || mouseX < 25 || mouseX > 375) {
+            fill(62, 128, 5);
+            fill(255, 0, 0);
+            textSize(30);
+            textFont(createFont('Papyrus'), 20);
+            text("Try Again...", 89, 191);
+            textSize(40);
+            text("Press Any Key", 40, 252);
+            textSize(20);
+            text("Oh Noes, You Died", 120, 100);
+            playSound(getSound("retro/boom2"));
+            image(getImage("creatures/OhNoes"), 30 ,25, 70, 70);
+            fill(227, 9, 9);
+            text("Your Points " + hola, 130, 50);
+            
+        } 
+        
+       
+         if(rectY === 340) {
+             playSound(getSound("rpg/coin-jingle"));
+         hola++;  
+       }
+       fill(62, 128, 5);
+       textSize(15);
+text("Current Points " + hola, 250, 50);
+        
+        if(hola === 10) {
+          playSound(getSound("retro/coin"));  
+        }
+        
+        if (hola > 9){
+            
+        image(getImage("cute/Star"), 30 ,30, 50, 50);
+        rectY +=5;
+        }
+         
+    if (hola >20){
+        image(getImage("cute/Star"), 60, 30, 50, 50);
+    }
+    if (hola >30){
+        image(getImage("cute/Star"), 90, 30, 50, 45);
+    }
+    if (hola > 40){
+     image(getImage("cute/Star"), 120, 30, 50, 50);
+     if (hola > 40){
+     image(getImage("cute/Star"), 120, 30, 50, 50);
+    }
+    if (hola > 40){
+     image(getImage("cute/Star"), 120, 30, 50, 50);
+    
+    if (hola > 50){
+     image(getImage("cute/Star"), 120, 30, 50, 50);
+    }
+    if (hola > 60){
+     image(getImage("cute/Star"), 120, 30, 50, 50);
+    }
+    if (hola > 70){
+     image(getImage("cute/Star"), 120, 30, 50, 50);
+    }
+    if (hola > 80){
+     image(getImage("cute/Star"), 120, 30, 50, 50);
+    }
+    
+}
+    
+    }
+    if (hola > 90){
+     image(getImage("cute/Star"), 120, 30, 50, 50);
+    }
+        };
+    };
+    keyPressed = function() {
+      Program.restart();
+    };
+
+
+ 
